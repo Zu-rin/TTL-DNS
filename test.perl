@@ -20,20 +20,20 @@ sub reply_handler {
     # specify EDNS options  { option => value }
     my $optionmask = {};
     
-    if ( $qtype eq "TXT" && $qname eq "rtt1.net.cs.tuat.ac.jp"){
+    if ( $qtype eq "TXT" && $qname eq "rtt1.com"){
         $t0 = [gettimeofday];
         
         my ( $ttl, $s, $ms ) = ( 1, gettimeofday );
         
         my $strtime = join('.', @$t0);
-        my $cname = Net::DNS::RR->new("$peerhost $ttl IN CNAME $strtime.rtt2.net.cs.tuat.ac.jp");
+        my $cname = Net::DNS::RR->new("$peerhost $ttl IN CNAME $strtime.rtt2.com");
         push @ans, $cname;
-        my $ns = Net::DNS::RR->new("$strtime.rtt2.net.cs.tuat.ac.jp $ttl IN A $peerhost");
+        my $ns = Net::DNS::RR->new("$strtime.rtt2.com $ttl IN A $peerhost");
         push @auth, $ns;
         $rcode = "NOERROR";
         return( $rcode, \@ans, \@auth, \@add, $headermask, $optionmask)
         
-    } elsif( $qtype eq "TXT" && $qname =~ /rtt2.net.cs.tuat.ac.jp/){
+    } elsif( $qtype eq "TXT" && $qname =~ /rtt2.com/){
     
         my @packet = split(/\./, $qname);
         my $time = [$packet[0], $packet[1]];
