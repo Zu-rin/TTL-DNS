@@ -26,14 +26,14 @@ sub reply_handler {
         my ( $ttl, $s, $ms ) = ( 1, gettimeofday );
         
         my $strtime = join('.', @$t0);
-        my $cname = Net::DNS::RR->new("$peerhost $ttl IN CNAME $strtime.rtt2.com");
+        my $cname = Net::DNS::RR->new("$peerhost $ttl IN CNAME $strtime.rtt2.net.cs.tuat.ac.jp");
         push @ans, $cname;
-        my $ns = Net::DNS::RR->new("$strtime.rtt2.com $ttl IN A $peerhost");
+        my $ns = Net::DNS::RR->new("$strtime.rtt2.net.cs.tuat.ac.jp $ttl IN A $peerhost");
         push @auth, $ns;
         $rcode = "NOERROR";
         return( $rcode, \@ans, \@auth, \@add, $headermask, $optionmask)
         
-    } elsif( $qtype eq "TXT" && $qname =~ /rtt2.com/){
+    } elsif( $qtype eq "TXT" && $qname =~ /rtt2.net.cs.tuat.ac.jp/){
     
         my @packet = split(/\./, $qname);
         my $time = [$packet[0], $packet[1]];
