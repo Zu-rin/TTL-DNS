@@ -56,7 +56,7 @@ sub reply_handler {
  
  
 my $ns = new Net::DNS::Nameserver(
-                                  LocalPort    => 10053,
+                                  LocalPort    => 53,
                                   LocalAddr    => '192.168.11.15',
                                   ReplyHandler => \&reply_handler,
                                   Verbose      => 1
