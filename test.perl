@@ -56,8 +56,8 @@ sub reply_handler {
  
  
 my $ns = new Net::DNS::Nameserver(
-                                  LocalPort    => 53,
-                                  LocalAddr    => '192.168.11.15',
+                                  LocalPort    => 10053,
+                                  LocalAddr    => '192.168.1.5',
                                   ReplyHandler => \&reply_handler,
                                   Verbose      => 1
                                   ) || die "couldn't create nameserver object\n";
