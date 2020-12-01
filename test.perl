@@ -20,7 +20,7 @@ sub reply_handler {
     # specify EDNS options  { option => value }
     my $optionmask = {};
     
-    if ( $qtype eq "TXT" && $qname eq "rtt1.com"){
+    if ( $qtype eq "TXT" && $qname eq "rtt1.net.cs.tuat.ac.jp"){
         $t0 = [gettimeofday];
         
         my ( $ttl, $s, $ms ) = ( 1, gettimeofday );
